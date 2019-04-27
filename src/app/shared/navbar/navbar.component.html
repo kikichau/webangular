@@ -1,0 +1,97 @@
+<nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent" color-on-scroll="500">
+  <div class="container">
+    <div class="dropdown button-dropdown">
+      <div ngbDropdown>
+        <a class="dropdown-toggle" ngbDropdownToggle>
+          <span class="button-bar"></span>
+          <span class="button-bar"></span>
+          <span class="button-bar"></span>
+        </a>
+        <div ngbDropdownMenu>
+          <a class="dropdown-header">User Information</a>
+          <a class="dropdown-item" [routerLink]="['/login']">
+            <i class="now-ui-icons users_circle-08"></i>
+            Login Page</a>
+          <a class="dropdown-item" [routerLink]="['/profile']">
+            <i class="now-ui-icons users_single-02"></i>
+            Profile Page</a>
+          <a class="dropdown-header">Game Information</a>
+          <a class="dropdown-item" [routerLink]="['/login']">
+            <i class="now-ui-icons ui-1_simple-add"></i>
+            Create Page</a>
+          <a class="dropdown-item" [routerLink]="['/login']">
+            <i class="now-ui-icons arrows-1_refresh-69"></i>
+            Modify Page</a>
+          <a class="dropdown-item" [routerLink]="['/login']">
+            <i class="now-ui-icons ui-1_simple-delete"></i>
+            Delete Page</a>
+        </div>
+      </div>
+    </div>
+    <div class="navbar-translate">
+      <a class="navbar-brand" [routerLink]="['/index']" placement="bottom" ngbTooltip="Welcome to G Game Center!~">
+        G Game Center
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"
+        (click)="sidebarToggle()">
+        <span class="navbar-toggler-bar bar1"></span>
+        <span class="navbar-toggler-bar bar2"></span>
+        <span class="navbar-toggler-bar bar3"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" rel="tooltip" title="Login Page" data-placement="bottom" [routerLink]="['/login']"
+            target="_blank">
+            <i class="now-ui-icons users_circle-08"></i>
+            <p class="d-lg-none d-xl-none">Login Page</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" rel="tooltip" title="Profile Page" data-placement="bottom" [routerLink]="['/profile']"
+            target="_blank">
+            <i class="now-ui-icons users_single-02"></i>
+            <p class="d-lg-none d-xl-none">Profile Page</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" rel="tooltip" title="Create Page" data-placement="bottom" [routerLink]="['/profile']"
+            target="_blank">
+            <i class="now-ui-icons ui-1_simple-add"></i>
+            <p class="d-lg-none d-xl-none">Create Page</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" rel="tooltip" title="Modify Page" data-placement="bottom" [routerLink]="['/profile']"
+            target="_blank">
+            <i class="now-ui-icons arrows-1_refresh-69"></i>
+            <p class="d-lg-none d-xl-none">Modify Page</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" rel="tooltip" title="Delete Page" data-placement="bottom" [routerLink]="['/profile']"
+            target="_blank">
+            <i class="now-ui-icons ui-1_simple-delete"></i>
+            <p class="d-lg-none d-xl-none">Delete Page</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom"
+            href="https://www.facebook.com/kiki.chau.3" target="_blank">
+            <i class="fab fa-facebook-square"></i>
+            <p class="d-lg-none d-xl-none">Facebook</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom"
+            href="https://www.instagram.com/kiki_kkcwk311/" target="_blank">
+            <i class="fab fa-instagram"></i>
+            <p class="d-lg-none d-xl-none">Instagram</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
