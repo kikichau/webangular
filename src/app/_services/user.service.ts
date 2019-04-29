@@ -12,20 +12,10 @@ export class UserService {
     }
 
     updateById(user: User) {
-        return this.http.put(`${config.apiUrl}/users/` + name.userId, user)
+        return this.http.put(`${config.apiUrl}/users/` + user.id, user)
     }
 
     getById(id: number) {
         return this.http.get(`${config.apiUrl}/users/` + id);
     }
-
-    
-    register(user: User) {
-        return this.http.post(`${config.apiUrl}/users/register`, user);
-    }
-
-    update(user: User) {
-        return this.http.put(`${config.apiUrl}/users/` + user.id, user);
-    }
-
 }
