@@ -7,16 +7,18 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { UserModule } from './user/user.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+//import { AlertComponent } from './_directives';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavbarComponent
     ],
-    imports: [
+    imports: [  
         BrowserAnimationsModule,
         NgbModule.forRoot(),
         FormsModule,
@@ -24,7 +26,8 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
         AppRoutingModule,
         ComponentsModule,
         ExamplesModule, 
-        UserModule
+        UserModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]
