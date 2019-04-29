@@ -2,6 +2,10 @@ import { Component, OnInit, Renderer, OnDestroy } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { NgbAccordionConfig } from '@ng-bootstrap/ng-bootstrap';
 import * as Rellax from 'rellax';
+import { first } from 'rxjs/operators';
+
+import { User } from '../_models';
+import { UserService } from '../_services';
 
 @Component({
     selector: 'app-components',
