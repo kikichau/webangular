@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { first } from 'rxjs/operators';
+
+import { AlertService, UserService } from '../../_services';
 
 @Component({
   selector: 'app-register',
@@ -27,5 +32,4 @@ export class RegisterComponent implements OnInit {
         var navbar = document.getElementsByTagName('nav')[0];
         navbar.classList.remove('navbar-transparent');
     }
-
 }

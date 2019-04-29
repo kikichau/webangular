@@ -11,12 +11,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-//import { AlertComponent } from './_directives';
+import { AlertComponent } from './_directives';
+import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { AlertService, AuthenticationService, UserService } from './_services';
 
 @NgModule({
     declarations: [
         AppComponent,
-        NavbarComponent
+        NavbarComponent,
+        AlertComponent,
     ],
     imports: [  
         BrowserAnimationsModule,
@@ -29,7 +32,13 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
         UserModule,
         HttpClientModule
     ],
-    providers: [],
+    providers: [
+        AlertService,
+        AuthenticationService,
+        UserService,
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

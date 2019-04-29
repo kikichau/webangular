@@ -8,7 +8,7 @@ import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { AgmCoreModule } from '@agm/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { LoginComponent } from '../user/login/login.component';
+import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from '../user/register/register.component';
 import { ProfileComponent } from '../user/profile/profile.component';
 import { UserComponent } from './user.component';
