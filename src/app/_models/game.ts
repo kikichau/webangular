@@ -1,5 +1,5 @@
 export class Game {
-    id: number;
+    gameId: number;
     name: String;
     game_information: String;
     releases_on: String;

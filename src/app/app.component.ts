@@ -5,6 +5,10 @@ import 'rxjs/add/operator/filter';
 import { DOCUMENT } from '@angular/platform-browser';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { AuthenticationService } from './_services';
+import { User } from './_models';
+import { Game } from './_models';
+import { Commant } from './_models';
 
 @Component({
     selector: 'app-root',
@@ -12,16 +16,20 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+    currentUser: User;
+    
     private _router: Subscription;
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
 
-    constructor( private renderer : Renderer, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location) {}
+    constructor(private renderer: Renderer, private router: Router, @Inject(DOCUMENT) private document: any, private element: ElementRef, public location: Location, private authenticationService: AuthenticationService) {
+        this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    }
     ngOnInit() {
-        var navbar : HTMLElement = this.element.nativeElement.children[0].children[0];
+        var navbar: HTMLElement = this.element.nativeElement.children[0].children[0];
         this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
             if (window.outerWidth > 991) {
                 window.document.children[0].scrollTop = 0;
-            }else{
+            } else {
                 window.document.activeElement.scrollTop = 0;
             }
             this.navbar.sidebarClose();
@@ -39,5 +47,9 @@ export class AppComponent implements OnInit {
                 }
             });
         });
+    }
+    logout() {
+        this.authenticationService.logout();
+        this.router.navigate(['/login']);
     }
 }

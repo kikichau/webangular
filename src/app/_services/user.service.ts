@@ -3,19 +3,19 @@ import { HttpClient } from '@angular/common/http';
 
 import { User } from '../_models/user';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class UserService {
     constructor(private http: HttpClient) { }
 
     create(user: User) {
-        return this.http.post(`${config.baseUrl}/users/register`, user);
+        return this.http.post(`http://localhost:4000/users/register/${user.userId}`, user);
     }
 
     updateById(user: User) {
-        return this.http.put(`${config.baseUrl}/users/` + user.id, user)
+        return this.http.put(`http://localhost:4000/users/${user.userId}`, user)
     }
 
-    getById(id: number) {
-        return this.http.get(`${config.baseUrl}/users/` + id);
+    getById(userId: number) {
+        return this.http.get(`http://localhost:4000/users/${userId}`);
     }
 }

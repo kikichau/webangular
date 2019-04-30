@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class AlertService {
     private subject = new Subject<any>();
     private keepAfterNavigationChange = false;
@@ -20,7 +20,7 @@ export class AlertService {
                 }
             }
         });
-    }
+    } 
 
     success(message: string, keepAfterNavigationChange = false) {
         this.keepAfterNavigationChange = keepAfterNavigationChange;

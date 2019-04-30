@@ -7,6 +7,7 @@ import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { AgmCoreModule } from '@agm/core';
 
 import { LandingComponent } from './landing/landing.component';
+import { ProfileComponent } from './profile/profile.component';
 import { ExamplesComponent } from './examples.component';
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ExamplesComponent } from './examples.component';
     ],
     declarations: [
         LandingComponent,
+        ProfileComponent,
         ExamplesComponent
     ]
 })

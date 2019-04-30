@@ -10,10 +10,3 @@ export class AppComponent {
         return body || { };
       }
 }
-
-const endpoint = 'http://localhost:3000/';
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json'
-  })
-};

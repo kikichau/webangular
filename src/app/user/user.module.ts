@@ -8,9 +8,6 @@ import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { AgmCoreModule } from '@agm/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from '../user/register/register.component';
-import { ProfileComponent } from '../user/profile/profile.component';
 import { UserComponent } from './user.component';
 
 @NgModule({
@@ -27,10 +24,7 @@ import { UserComponent } from './user.component';
         })
     ],
     declarations: [
-        LoginComponent,
-        RegisterComponent,
-        UserComponent,
-        ProfileComponent
+        UserComponent
     ]
 })
 export class UserModule { }
