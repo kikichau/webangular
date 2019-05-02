@@ -16,15 +16,15 @@
    <div class="container">
     <div class="team">
      <div class="row">
-      <div class="col-md-12">
-       <p class="category text-primary">User name: Kiki Chau</p>
-       <p class="category text-primary">Game name: PLAYERUNKNOWN'S BATTLEGROUNDS</p>
-       <p class="description">Test modify.</p>
-       <p class="category text-primary">Date: 2019-05-02</p>
+      <div *ngFor="let comment of comments" class="col-md-12">
+       <p class="category text-primary">User name: {{comments.username}}</p>
+       <p class="category text-primary">Game name: {{comments.gamename}}</p>
+       <p class="description">{{comments.comment}}</p>
+       <p class="category text-primary">Date: {{comments.release_date}}</p>
        <a [routerLink]="['/modifycommant']" class="btn btn-primary btn-round">
         Modify commant
        </a>
-       <button herf="yourcommant" class="btn btn-primary btn-round" type="button">Delete Commant</button>
+       <a (click)="deleteById(comments.commentid)" class="btn btn-primary btn-round">Delete Commant</a>
        <div class="separator separator-primary"></div>
       </div>
      </div>
@@ -33,32 +33,37 @@
   </div>
  </div>
  <footer class="footer" data-background-color="black">
-  <div class="container">
-   <nav>
-    <ul>
-     <li>
-      <a href="https://www.facebook.com/kiki.chau.3">
-       Facebook
-      </a>
-     </li>
-     <li>
-      <a href="https://www.instagram.com/kiki_kkcwk311/">
-       instagram
-      </a>
-     </li>
-     <li>
-      <a href="https://github.com/kikichau/webapi">
-       Github
-      </a>
-     </li>
-    </ul>
-   </nav>
-   <div class="copyright">
-    &copy;
-    {{data | date: 'yyyy'}}, Designed by
-    <a href="https://www.facebook.com/kiki.chau.3" target="_blank">Wing Ki Chau </a>. Coded by
-    <a href="https://www.instagram.com/kiki_kkcwk311/" target="_blank">Wing Ki Chau</a>.
-   </div>
-  </div>
- </footer>
+    <div class="container">
+     <nav>
+      <ul>
+       <li>
+        <a href="https://www.facebook.com/kiki.chau.3">
+         Facebook
+        </a>
+       </li>
+       <li>
+        <a href="https://www.instagram.com/kiki_kkcwk311/">
+         instagram
+        </a>
+       </li>
+       <li>
+        <a href="https://github.com/kikichau/webapi">
+         Github
+        </a>
+       </li>
+       <li>
+        <a href="https://github.com/kikichau/webangular">
+         Github
+        </a>
+       </li>
+      </ul>
+     </nav>
+     <div class="copyright">
+      &copy;
+      {{data | date: 'yyyy'}}, Designed by
+      <a href="https://www.facebook.com/kiki.chau.3" target="_blank">Wing Ki Chau </a>. Coded by
+      <a href="https://www.instagram.com/kiki_kkcwk311/" target="_blank">Wing Ki Chau</a>.
+     </div>
+    </div>
+   </footer>
 </div>

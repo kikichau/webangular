@@ -7,10 +7,10 @@
                 <div class="photo-container">
                     <img src="assets/img/ins.jpg" alt="">
                 </div>
-                <h3 class="title">Kiki Chau</h3>
+                <h3 class="title">{{user.username}}</h3>
                 <div class="content">
                     <div class="social-description">
-                        <p>Email: 187109450@stu.vtc.edu.hk</p>
+                        <p>Email: {{user.email}}</p>
                     </div>
                 </div>
             </div>
@@ -21,37 +21,42 @@
           <div class="button-container">
               <a [routerLink]="['/modifyname']" class="btn btn-primary btn-round btn-lg">Modify username</a>
           </div>
-          <h3 class="title">Hi Kiki Chau!</h3>
+          <h3 class="title">Hi {{user.username}}!</h3>
           <h5 class="description">Welcome to G Game Center.</h5>
         </div>
     </div>
-    <footer class="footer footer-default">
+    <footer class="footer" data-background-color="black">
         <div class="container">
-            <nav>
-                <ul>
-                        <li>
-                                <a href="https://www.facebook.com/kiki.chau.3">
-                                 Facebook
-                                </a>
-                               </li>
-                               <li>
-                                <a href="https://www.instagram.com/kiki_kkcwk311/">
-                                 instagram
-                                </a>
-                               </li>
-                               <li>
-                                <a href="https://github.com/kikichau/webapi">
-                                 Github
-                                </a>
-                               </li>
-                </ul>
-            </nav>
-            <div class="copyright">
-                &copy;
-                {{data | date: 'yyyy'}}, Designed by
-                <a href="https://www.facebook.com/kiki.chau.3" target="_blank">Wing Ki Chau </a>. Coded by
-                <a href="https://www.instagram.com/kiki_kkcwk311/" target="_blank">Wing Ki Chau</a>.
-            </div>
+         <nav>
+          <ul>
+           <li>
+            <a href="https://www.facebook.com/kiki.chau.3">
+             Facebook
+            </a>
+           </li>
+           <li>
+            <a href="https://www.instagram.com/kiki_kkcwk311/">
+             instagram
+            </a>
+           </li>
+           <li>
+            <a href="https://github.com/kikichau/webapi">
+             Github
+            </a>
+           </li>
+           <li>
+            <a href="https://github.com/kikichau/webangular">
+             Github
+            </a>
+           </li>
+          </ul>
+         </nav>
+         <div class="copyright">
+          &copy;
+          {{data | date: 'yyyy'}}, Designed by
+          <a href="https://www.facebook.com/kiki.chau.3" target="_blank">Wing Ki Chau </a>. Coded by
+          <a href="https://www.instagram.com/kiki_kkcwk311/" target="_blank">Wing Ki Chau</a>.
+         </div>
         </div>
-    </footer>
+       </footer>
 </div>

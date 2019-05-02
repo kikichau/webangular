@@ -20,18 +20,16 @@
    <div class="team">
     <div class="row">
      <div class="col-md-4">
-      <div class="team-player">
+      <div *ngFor="let game of games" class="team-player">
        <img src="assets/img/avatar.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
-       <h4 class="title">PLAYERUNKNOWN'S BATTLEGROUNDS</h4>
-       <p class="description">PLAYERUNKNOWN'S BATTLEGROUNDS is a battle royale shooter that pits 100 players against
-        each other in a struggle for survival. Gather supplies and outwit your opponents to become the last person
-        standing.</p>
-        <p class="category text-primary">Developer: PUBG Corporation</p>
-       <p class="category text-primary">Date: 2017-12-21</p>
-       <p class="category text-primary">GameID: 5cc47d63a244d50cd063b691</p>
+       <h4 class="title">{{games.gamename}}</h4>
+       <p class="description">{{games.information}}</p>
+        <p class="category text-primary">Developer: {{games.developer}}</p>
+       <p class="category text-primary">Date: {{game.release_data}}</p>
+       <p class="category text-primary">GameID: {{games.gameId}}</p>
        <a href="allcommant" class="btn btn-primary btn-round">All commant</a>
        <a [routerLink]="['/modifygame']" class="btn btn-primary btn-round">Modify Game</a>
-       <button href="yourgame" class="btn btn-primary btn-round" type="button">Delete Game</button>
+       <a (click)="deleteById(game.gameid)" class="btn btn-primary btn-round">Delete Commant</a>
       </div>
      </div>
     </div>
@@ -55,6 +53,11 @@
      </li>
      <li>
       <a href="https://github.com/kikichau/webapi">
+       Github
+      </a>
+     </li>
+     <li>
+      <a href="https://github.com/kikichau/webangular">
        Github
       </a>
      </li>

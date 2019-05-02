@@ -37,6 +37,8 @@ export class ModifygameComponent implements OnInit {
             comment: ['', Validators.required],
             release_date: ['', [Validators.required, Validators.minLength(6)]]
         });
+
+        this.updateById;
     }
 
     ngOnDestroy(){
@@ -63,13 +65,19 @@ export class ModifygameComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
-                    this.alertService.success('Modify comment successful', true);
-                    this.router.navigate(['/yourcomment']);
+                    this.alertService.success('Modify game successful', true);
+                    this.router.navigate(['/yourgame']);
                 },
                 error => {
                     this.alertService.error(error);
                     this.loading = false;
                 });
+    }
+
+    updateById(gameId: number) {
+        this.gameService.updateById(gameId).pipe(first()).subscribe(game => {
+            this.game = game;
+        })
     }
 }
 

@@ -16,17 +16,12 @@ import { Subscription } from 'rxjs';
 })
 
 export class CreategameComponent implements OnInit {
-
     data: Date = new Date();
-
     focus;
     focus1;
     creategameForm: FormGroup;
     loading = false;
     submitted = false;
-
-    date: { year: number, month: number };
-    model: NgbDateStruct;
 
     currentUser: User;
     currentUserSubscription: Subscription;
@@ -46,15 +41,6 @@ export class CreategameComponent implements OnInit {
                 });
             }
         }
-
-    isWeekend(date: NgbDateStruct) {
-        const d = new Date(date.year, date.month - 1, date.day);
-        return d.getDay() === 0 || d.getDay() === 6;
-    }
-
-    isDisabled(date: NgbDateStruct, current: { month: number }) {
-        return date.month !== current.month;
-    }
 
     ngOnInit() {
         var rellaxHeader = new Rellax('.rellax-header');
