@@ -14,7 +14,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './user/login/login.component';
-import { GameComponent } from './game/gmae.component';
+import { ProfileComponent } from './profile/profile.component';
+import { CreategameComponent } from './creategame/creategame.component';
+import { YourgameComponent } from './yourgame/yourgame.component';
+import { ModifygameComponent } from './modifygame/modifygame.component';
+import { AllcommantComponent } from './allcommant/allcomment.component';
+import { YourcommantComponent } from './yourcommant/yourcommant.component';
+import { CreatecommentComponent } from './createcomment/createcomment.component';
+import { ModifycommantComponent } from './modifycommant/modifycomment.component';
+import { ModifynameComponent } from './modifyname/modifyname.component';
 import { AlertComponent } from './_component';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 
@@ -25,7 +33,15 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
         RegisterComponent,
         LoginComponent,
         AlertComponent,
-        GameComponent
+        ProfileComponent,
+        YourgameComponent,
+        ModifygameComponent,
+        AllcommantComponent,
+        YourcommantComponent,
+        CreatecommantComponent,
+        ModifycommantComponent,
+        ModifynameComponent,
+        CreategameComponent
     ],
     imports: [  
         BrowserAnimationsModule,

@@ -13,15 +13,15 @@
             <i class="now-ui-icons users_single-02"></i>
             Profile Page</a>
           <a class="dropdown-header">Game Information</a>
-          <a class="dropdown-item" [routerLink]="['/login']">
+          <a class="dropdown-item" [routerLink]="['/yourgame']">
+            <i class="now-ui-icons tech_controller-modern"></i>
+            Your Games</a>
+          <a class="dropdown-item" [routerLink]="['/creategame']">
             <i class="now-ui-icons ui-1_simple-add"></i>
-            Create Page</a>
-          <a class="dropdown-item" [routerLink]="['/login']">
-            <i class="now-ui-icons arrows-1_refresh-69"></i>
-            Modify Page</a>
-          <a class="dropdown-item" [routerLink]="['/login']">
-            <i class="now-ui-icons ui-1_simple-delete"></i>
-            Delete Page</a>
+            Create Game</a>
+          <a class="dropdown-item" [routerLink]="['/youcommant']">
+            <i class="now-ui-icons design_bullet-list-67"></i>
+            Your Commants</a>
         </div>
       </div>
     </div>
@@ -52,21 +52,21 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" rel="tooltip" title="Create Page" data-placement="bottom" [routerLink]="['/profile']">
-            <i class="now-ui-icons ui-1_simple-add"></i>
-            <p class="d-lg-none d-xl-none">Create Page</p>
-          </a>
-        </li>
+            <a class="nav-link" rel="tooltip" title="Modify Page" data-placement="bottom" [routerLink]="['/yourgame']">
+              <i class="now-ui-icons tech_controller-modern"></i>
+              <p class="d-lg-none d-xl-none">Yuor Games</p>
+            </a>
+          </li>
         <li class="nav-item">
-          <a class="nav-link" rel="tooltip" title="Modify Page" data-placement="bottom" [routerLink]="['/profile']">
-            <i class="now-ui-icons arrows-1_refresh-69"></i>
-            <p class="d-lg-none d-xl-none">Modify Page</p>
+          <a class="nav-link" rel="tooltip" title="Create Page" data-placement="bottom" [routerLink]="['/creategame']">
+            <i class="now-ui-icons ui-1_simple-add"></i>
+            <p class="d-lg-none d-xl-none">Create Game</p>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" rel="tooltip" title="Delete Page" data-placement="bottom" [routerLink]="['/profile']">
-            <i class="now-ui-icons ui-1_simple-delete"></i>
-            <p class="d-lg-none d-xl-none">Delete Page</p>
+            <i class="now-ui-icons design_bullet-list-67"></i>
+            <p class="d-lg-none d-xl-none">Your commants</p>
           </a>
         </li>
         <li class="nav-item">

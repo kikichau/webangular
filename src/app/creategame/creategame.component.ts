@@ -2,44 +2,50 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap'
 import * as Rellax from 'rellax';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+
+import { AlertService, GameService, AuthenticationService } from '../_services';
+import { Game, User } from '../_models';
 import { Subscription } from 'rxjs';
 
-import { AlertService, UserService, AuthenticationService } from '../_services';
-import { User } from 'app/_models';
-
-
 @Component({
-    selector: 'app-register',
-    templateUrl: './register.component.html',
-    styleUrls: ['./register.component.scss']
+    selector: 'app-creategame',
+    templateUrl: './creategame.component.html',
+    styleUrls: ['./creategame.component.scss']
 })
 
-export class RegisterComponent implements OnInit {
+export class CreategameComponent implements OnInit {
+
     data: Date = new Date();
+
     focus;
     focus1;
-    registerForm: FormGroup;
+    creategameForm: FormGroup;
     loading = false;
     submitted = false;
+
+    date: { year: number, month: number };
+    model: NgbDateStruct;
 
     currentUser: User;
     currentUserSubscription: Subscription;
 
-    constructor(private formBuilder: FormBuilder,
-        private router: Router,
-        private authenticationService: AuthenticationService,
-        private userService: UserService,
-        private alertService: AlertService) {
-        // redirect to home if already logged in
-        if (this.authenticationService.currentUserValue) {
-            this.router.navigate(['/']);
-            this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
-                this.currentUser = user;
-            });
+    game: Game[] = [];
+
+    constructor(public router: Router,
+        private gameService: GameService,
+        private alertService: AlertService,
+        private formBuilder: FormBuilder,
+        private authenticationService: AuthenticationService) {
+            // redirect to home if already logged in
+            if (this.authenticationService.currentUserValue) {
+                this.router.navigate(['/']);
+                this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
+                    this.currentUser = user;
+                });
+            }
         }
-    }
 
     isWeekend(date: NgbDateStruct) {
         const d = new Date(date.year, date.month - 1, date.day);
@@ -59,10 +65,11 @@ export class RegisterComponent implements OnInit {
         var navbar = document.getElementsByTagName('nav')[0];
         navbar.classList.add('navbar-transparent');
 
-        this.registerForm = this.formBuilder.group({
+        this.creategameForm = this.formBuilder.group({
             username: ['', Validators.required],
-            email: ['', Validators.required],
-            password: ['', Validators.required, Validators.minLength(6)],
+            gamename: ['', Validators.required],
+            comment: ['', Validators.required],
+            release_date: ['', [Validators.required,]]
         });
     }
 
@@ -75,23 +82,23 @@ export class RegisterComponent implements OnInit {
     }
 
     // convenience getter for easy access to form fields
-    get f() { return this.registerForm.controls; }
+    get f() { return this.creategameForm.controls; }
 
     onSubmit() {
         this.submitted = true;
 
         // stop here if form is invalid
-        if (this.registerForm.invalid) {
+        if (this.creategameForm.invalid) {
             return;
         }
 
         this.loading = true;
-        this.userService.create(this.registerForm.value)
+        this.gameService.create(this.creategameForm.value)
             .pipe(first())
             .subscribe(
                 data => {
-                    this.alertService.success('Registration successful', true);
-                    this.router.navigate(['/login']);
+                    this.alertService.success('Create game successful', true);
+                    this.router.navigate(['/yourgame']);
                 },
                 error => {
                     this.alertService.error(error);
@@ -99,4 +106,3 @@ export class RegisterComponent implements OnInit {
                 });
     }
 }
-

@@ -21,9 +21,8 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
     "paths": {
-      "@/*": [
-          "app/*"
-      ]
+      "@app/*": ["src/app/*"],
+      "@environments/*": ["src/environments/*"]
     }
   }
 }

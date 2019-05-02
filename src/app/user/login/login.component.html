@@ -25,16 +25,11 @@
                       </div>
                     </div>
                     <div class="footer text-center">
-                        <button class="btn btn-primary btn-round btn-lg btn-block">Get Started</button>
+                        <button [routerLink]="['/index']" class="btn btn-primary btn-round btn-lg btn-block">Get Started</button>
                     </div>
                     <div class="pull-left">
                         <h6>
-                            <a href="register" class="link">Register</a>
-                        </h6>
-                    </div>
-                    <div class="pull-right">
-                        <h6>
-                            <a href="#pablo" class="link">Need Help?</a>
+                            <a [routerLink]="['/register']" class="link">Register</a>
                         </h6>
                     </div>
                 </form>

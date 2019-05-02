@@ -7,8 +7,6 @@ import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { AuthenticationService } from './_services';
 import { User } from './_models';
-import { Game } from './_models';
-import { Commant } from './_models';
 
 @Component({
     selector: 'app-root',

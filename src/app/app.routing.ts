@@ -4,23 +4,33 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ComponentsComponent } from './components/components.component';
-import { LandingComponent } from './examples/landing/landing.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { ProfileComponent } from './examples/profile/profile.component';
-import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
-import { GameComponent } from './game/gmae.component';
+import { ProfileComponent } from './profile/profile.component';
+import { CreategameComponent } from './creategame/creategame.component';
+import { YourgameComponent } from './yourgame/yourgame.component';
+import { ModifygameComponent } from './modifygame/modifygame.component';
+import { AllcommantComponent } from './allcommant/allcomment.component';
+import { YourcommantComponent } from './yourcommant/yourcommant.component';
+import { CreatecommentComponent } from './createcomment/createcomment.component';
+import { ModifycommantComponent } from './modifycommant/modifycomment.component';
+import { ModifynameComponent } from './modifyname/modifyname.component';
 import { AuthGuard } from './_guards';
 
 const routes: Routes = [
     { path: '', redirectTo: 'index', pathMatch: 'full' },
     { path: 'index',       component: ComponentsComponent },
-    { path: 'nucleoicons', component: NucleoiconsComponent },
-    { path: 'landing',     component: LandingComponent },
     { path: 'login',                component: LoginComponent },
     { path: 'register',             component: RegisterComponent },
-    { path: 'profile',     component: ProfileComponent, canActivate: [AuthGuard] },
-    { path: 'game',     component: GameComponent },
+    { path: 'profile',     component: ProfileComponent},
+    { path: 'creategame',     component: CreategameComponent },
+    { path: 'yourgame',     component: YourgameComponent },
+    { path: 'modifygame',     component: ModifygameComponent },
+    { path: 'allcommant',     component: AllcommantComponent },
+    { path: 'yourcommant',     component: YourcommantComponent },
+    { path: 'createcommant',     component: CreatecommentComponent },
+    { path: 'modifycommant',     component: ModifycommantComponent },
+    { path: 'modifyname',     component: ModifynameComponent },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

@@ -2,39 +2,46 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap'
 import * as Rellax from 'rellax';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
-import { Subscription } from 'rxjs';
 
-import { AlertService, UserService, AuthenticationService } from '../_services';
+import { AlertService, CommentService, AuthenticationService } from '../_services';
+import { Subscription } from 'rxjs';
 import { User } from 'app/_models';
 
-
 @Component({
-    selector: 'app-register',
-    templateUrl: './register.component.html',
-    styleUrls: ['./register.component.scss']
+    selector: 'app-modifycomment',
+    templateUrl: './modifycomment.component.html',
+    styleUrls: ['./modifycomment.component.scss']
 })
 
-export class RegisterComponent implements OnInit {
+export class ModifycommentComponent implements OnInit {
+
     data: Date = new Date();
+
     focus;
     focus1;
-    registerForm: FormGroup;
+    modifycommentForm: FormGroup;
     loading = false;
     submitted = false;
+
+    date: { year: number, month: number };
+    model: NgbDateStruct;
 
     currentUser: User;
     currentUserSubscription: Subscription;
 
-    constructor(private formBuilder: FormBuilder,
-        private router: Router,
-        private authenticationService: AuthenticationService,
-        private userService: UserService,
-        private alertService: AlertService) {
+    comment: Comment[] = [];
+
+    constructor(public router: Router,
+        private alertService: AlertService,
+        private commentService: CommentService,
+        private formBuilder: FormBuilder,
+        private authenticationService: AuthenticationService, ) {
         // redirect to home if already logged in
         if (this.authenticationService.currentUserValue) {
             this.router.navigate(['/']);
+
             this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
                 this.currentUser = user;
             });
@@ -59,10 +66,11 @@ export class RegisterComponent implements OnInit {
         var navbar = document.getElementsByTagName('nav')[0];
         navbar.classList.add('navbar-transparent');
 
-        this.registerForm = this.formBuilder.group({
+        this.modifycommentForm = this.formBuilder.group({
             username: ['', Validators.required],
-            email: ['', Validators.required],
-            password: ['', Validators.required, Validators.minLength(6)],
+            gamename: ['', Validators.required],
+            comment: ['', Validators.required],
+            release_date: ['', [Validators.required, Validators.minLength(6)]]
         });
     }
 
@@ -75,28 +83,39 @@ export class RegisterComponent implements OnInit {
     }
 
     // convenience getter for easy access to form fields
-    get f() { return this.registerForm.controls; }
+    get f() { return this.modifycommentForm.controls; }
 
     onSubmit() {
         this.submitted = true;
 
         // stop here if form is invalid
-        if (this.registerForm.invalid) {
+        if (this.modifycommentForm.invalid) {
             return;
         }
 
         this.loading = true;
-        this.userService.create(this.registerForm.value)
+        this.commentService.create(this.modifycommentForm.value)
             .pipe(first())
             .subscribe(
                 data => {
-                    this.alertService.success('Registration successful', true);
-                    this.router.navigate(['/login']);
+                    this.alertService.success('Modify comment successful', true);
+                    this.router.navigate(['/yourcomment']);
                 },
                 error => {
                     this.alertService.error(error);
                     this.loading = false;
                 });
     }
-}
 
+    updateById(commentId: number) {
+        this.commentService.updateById(commentId).pipe(first()).subscribe(() => {
+            this.getAll()
+        });
+    }
+
+    private getAll() {
+        this.commentService.getAll().pipe(first()).subscribe(comment => {
+            this.comment = comment;
+        });
+    }
+}

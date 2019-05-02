@@ -1,7 +1,8 @@
 export class Game {
     gameId: number;
-    name: String;
-    game_information: String;
-    releases_on: String;
+    username: String;
+    gamename: String;
+    information: String;
+    releases_on: Date;
     developer: String;
 }
